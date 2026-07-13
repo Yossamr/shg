@@ -337,63 +337,74 @@ const App = () => {
 
       if (!isTechSetup) return <TechSetup onComplete={handleTechSetupComplete} />;
       if (isSetup === null) return (
-        <div className="flex flex-col h-screen items-center justify-center bg-[#080f1e] relative overflow-hidden" dir="rtl">
-          {/* Ambient blobs */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-80 h-80 bg-gold-600/10 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-blue-600/8 rounded-full blur-[80px] animate-float" />
-          <div className="absolute top-1/3 right-1/4 w-36 h-36 bg-gold-400/6 rounded-full blur-[60px] animate-float" style={{animationDelay:'1.5s'}} />
+        <div className="flex flex-col h-screen items-center justify-center bg-gradient-to-br from-[#070b19] via-[#0b1329] to-[#040812] relative overflow-hidden" dir="rtl">
+          {/* Ambient luminous spots */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none animate-float" />
+          <div className="absolute top-1/3 left-10 w-64 h-64 bg-amber-600/5 rounded-full blur-[80px] pointer-events-none animate-float" style={{ animationDelay: '2s' }} />
 
-          {/* Outer spinning ring */}
-          <div className="relative mb-8">
-            <div className="w-32 h-32 rounded-full border-2 border-transparent"
-              style={{
-                background: 'conic-gradient(from 0deg, rgba(251,191,36,0.9) 0%, rgba(251,191,36,0.1) 60%, transparent 100%)',
-                borderRadius: '50%',
-                animation: 'spinSlow 1.8s linear infinite',
-                padding: '3px'
-              }}
-            >
-              <div className="w-full h-full rounded-full bg-[#080f1e] flex items-center justify-center">
-                {/* Inner pulsing logo */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold-600/20 to-gold-800/10 border border-gold-500/30 flex items-center justify-center shadow-[0_0_40px_rgba(251,191,36,0.2)] animate-gold-glow">
-                  <svg width="40" height="40" viewBox="0 0 512 512" fill="none">
-                    <defs>
-                      <linearGradient id="gl" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stopColor="#FFF7D6"/>
-                        <stop offset="30%" stopColor="#FCD34D"/>
-                        <stop offset="70%" stopColor="#B45309"/>
-                        <stop offset="100%" stopColor="#451a03"/>
-                      </linearGradient>
-                    </defs>
-                    <path d="M256 20L470 135V377L256 492L42 377V135L256 20Z" fill="#0f172a" stroke="url(#gl)" strokeWidth="16"/>
-                    <path d="M256 120L360 220L256 360L152 220Z" fill="url(#gl)"/>
-                  </svg>
+          {/* Main Glass Panel */}
+          <div className="flex flex-col items-center bg-[#111c35]/30 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] p-10 max-w-sm w-[90%] mx-auto shadow-[0_30px_100px_rgba(0,0,0,0.8)] relative z-10">
+            {/* Elegant luxury gold ring */}
+            <div className="relative mb-8">
+              <div 
+                className="w-36 h-36 rounded-full flex items-center justify-center"
+                style={{
+                  background: 'conic-gradient(from 0deg, #f59e0b 0%, rgba(245, 158, 11, 0.2) 50%, transparent 100%)',
+                  animation: 'spinSlow 2.5s linear infinite',
+                  padding: '2.5px',
+                  borderRadius: '50%'
+                }}
+              >
+                <div className="w-full h-full rounded-full bg-[#0b1329] flex items-center justify-center">
+                  {/* Inside Logo Center */}
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-900/10 border border-amber-500/20 flex items-center justify-center shadow-[inset_0_0_20px_rgba(245,158,11,0.1)] animate-gold-glow">
+                    <svg width="48" height="48" viewBox="0 0 512 512" fill="none" className="drop-shadow-[0_0_15px_rgba(245,158,11,0.4)]">
+                      <defs>
+                        <linearGradient id="gl-logo" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+                          <stop offset="0%" stopColor="#FFFBEB"/>
+                          <stop offset="30%" stopColor="#FCD34D"/>
+                          <stop offset="70%" stopColor="#D97706"/>
+                          <stop offset="100%" stopColor="#78350f"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M256 20L470 135V377L256 492L42 377V135L256 20Z" fill="#0b1329" stroke="url(#gl-logo)" strokeWidth="16"/>
+                      <path d="M256 120L360 220L256 360L152 220Z" fill="url(#gl-logo)"/>
+                    </svg>
+                  </div>
                 </div>
+              </div>
+
+              {/* Orbiting Luxury Particle */}
+              <div className="absolute inset-0" style={{ animation: 'spinSlow 2.5s linear infinite' }}>
+                <div className="w-3.5 h-3.5 rounded-full bg-amber-400 border border-white/40 shadow-[0_0_15px_rgba(245,158,11,0.9)] absolute -top-1.5 left-1/2 -translate-x-1/2" />
               </div>
             </div>
 
-            {/* Orbiting dot */}
-            <div className="absolute inset-0" style={{animation: 'spinSlow 1.8s linear infinite'}}>
-              <div className="w-3 h-3 rounded-full bg-gold-400 shadow-[0_0_12px_rgba(251,191,36,0.9)] absolute -top-1.5 left-1/2 -translate-x-1/2" />
+            {/* Typography */}
+            <h1 className="text-3xl font-extrabold text-shimmer mb-1.5 tracking-wide text-center">جولد ماستر</h1>
+            <p className="text-xs text-amber-500/80 font-medium tracking-widest uppercase mb-1">GOLD MASTER</p>
+            <p className="text-[11px] text-gray-400 font-medium mb-8 text-center leading-relaxed">نظام الإدارة الذكي لمحلات الصاغة والمجوهرات</p>
+
+            {/* Premium Loader Progress */}
+            <div className="w-full space-y-3">
+              <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/5 p-[1px]">
+                <div
+                  className="h-full rounded-full animate-pulse"
+                  style={{
+                    background: 'linear-gradient(90deg, #b45309, #fbbf24, #fffbeb, #fbbf24, #b45309)',
+                    backgroundSize: '200% auto',
+                    animation: 'shimmer 1.4s linear infinite',
+                    width: '100%'
+                  }}
+                />
+              </div>
+              <div className="flex justify-between items-center px-1 text-[10px] text-gray-400">
+                <span className="animate-pulse">جاري تهيئة النظام وتحميل البيانات...</span>
+                <span className="font-mono text-amber-400/80 font-bold">100%</span>
+              </div>
             </div>
           </div>
-
-          {/* Title */}
-          <h1 className="text-3xl font-black text-shimmer mb-1 tracking-wide">Gold Master</h1>
-          <p className="text-xs text-gray-500 font-medium tracking-widest uppercase mb-10">نظام إدارة المجوهرات</p>
-
-          {/* Animated progress bar */}
-          <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full"
-              style={{
-                background: 'linear-gradient(90deg, #b45309, #fbbf24, #fde68a, #fbbf24, #b45309)',
-                backgroundSize: '200% auto',
-                animation: 'shimmer 1.6s linear infinite'
-              }}
-            />
-          </div>
-          <p className="text-[11px] text-gray-600 mt-4 animate-pulse">جاري تهيئة النظام...</p>
         </div>
       );
       if (!isSetup) return <Setup onComplete={handleSetup} />;

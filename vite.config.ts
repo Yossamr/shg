@@ -16,7 +16,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000
   },
-  base: isGithubPages ? '/gold-master/' : './', // Dynamic base path: relative './' for Electron/Capacitor/Android, absolute '/gold-master/' for GitHub Pages
+  base: './', // Relative base path ensures compatibility with any custom subdirectory (like GitHub Pages /shg/) and native builds (Capacitor/Electron)
   optimizeDeps: {
     exclude: ['otpauth']
   },
