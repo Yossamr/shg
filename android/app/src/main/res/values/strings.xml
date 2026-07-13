@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Gold Master Egypt</string>
+    <string name="title_activity_main">Gold Master Egypt</string>
+    <string name="package_name">com.goldmasteregypt.app</string>
+    <string name="custom_url_scheme">com.goldmasteregypt.app</string>
+</resources>

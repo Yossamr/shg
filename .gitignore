@@ -1,0 +1,15 @@
+node_modules/
+dist/
+release/
+*.local
+.DS_Store
+Thumbs.db
+android/app/build/
+android/.gradle/
+android/build/
+*.dex
+*.class
+*.apk
+*.aab
+.env
+.env.local
